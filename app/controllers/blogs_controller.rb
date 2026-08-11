@@ -5,6 +5,8 @@ class BlogsController < ApplicationController
 
   before_action :set_blog, only: %i[show edit update destroy]
 
+  before_action :correct_user, only: %i[edit update destroy]
+
   def index
     @blogs = Blog.search(params[:term]).published.default_order
   end
@@ -50,4 +52,9 @@ class BlogsController < ApplicationController
   def blog_params
     params.expect(blog: %i[title content secret random_eyecatch])
   end
+
+  def correct_user
+    redirect_to blog_url(@blog) unless @blog.user == current_user
+  end
+
 end
