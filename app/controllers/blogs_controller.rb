@@ -11,7 +11,11 @@ class BlogsController < ApplicationController
     @blogs = Blog.search(params[:term]).published.default_order
   end
 
-  def show; end
+  def show
+    return unless @blog.secret?
+
+    render :index unless @blog.user == current_user
+  end
 
   def new
     @blog = Blog.new
@@ -56,5 +60,4 @@ class BlogsController < ApplicationController
   def correct_user
     redirect_to blog_url(@blog) unless @blog.user == current_user
   end
-
 end
