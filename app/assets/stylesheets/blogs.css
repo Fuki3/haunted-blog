@@ -11,13 +11,14 @@
   color: #888;
 }
 
-.liked-by ul, .liked-by li {
+.liked-by ul,
+.liked-by li {
   padding: 0;
   display: inline-block;
 }
 
 .liked-by li:not(:last-child)::after {
-  content: ',';
+  content: ",";
   margin: 0 4px 0 0;
 }
 
@@ -27,7 +28,7 @@
 }
 
 .blog-post-title {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
   font-size: 2.5rem;
 }
 
@@ -44,4 +45,8 @@
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+.blog-content {
+  white-space: pre-line;
 }
