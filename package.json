@@ -11,8 +11,5 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets --minify"
-  },
-  "allowScripts": {
-    "esbuild@0.25.3": true
   }
 }
